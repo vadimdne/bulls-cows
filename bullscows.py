@@ -29,7 +29,6 @@ class Bullscows:
         """
         cows = sum(g in secret for g in guess)
         bulls = sum(g == s for g, s in zip(guess, secret))
-
         return cows, bulls
 
     def adjust_guess(self, result):

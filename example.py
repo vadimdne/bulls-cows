@@ -10,17 +10,14 @@ settings = {
 
 secret = ''.join(str(digit) for digit in random.sample(*settings.values()))
 print "Generated secret is: {}".format(secret)
-
-cb = Bullscows(**settings)
+bc = Bullscows(**settings)
 
 for n in count(1):
-    print "Remaining options count: {}".format(len(cb.remaining_options))
-    print "Guess: {}".format(cb.guess)
-    result = Bullscows.evaluate(cb.guess, secret)
-
+    print "Remaining options count: {}".format(len(bc.remaining_options))
+    print "Guess: {}".format(bc.guess)
+    result = Bullscows.evaluate(bc.guess, secret)
     print "Response: {} cows, {} bulls".format(*result)
-    if cb.guess == secret:
-        print "I guessed {}. Number of tries: {}".format(cb.guess, n)
+    if bc.guess == secret:
+        print "I guessed {}. Number of tries: {}".format(bc.guess, n)
         break
-
-    cb.adjust_guess(result)
+    bc.adjust_guess(result)
